@@ -1,0 +1,71 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Day 1",
+            "type": "python",
+            "request": "launch",
+            "program": "day1/day1.py",
+            "console": "integratedTerminal",
+            "args": ["day1/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 2",
+            "type": "python",
+            "request": "launch",
+            "program": "day2/day2.py",
+            "console": "integratedTerminal",
+            "args": ["day2/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 3",
+            "type": "python",
+            "request": "launch",
+            "program": "day3/day3.py",
+            "console": "integratedTerminal",
+            "args": ["day3/sample.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 4",
+            "type": "python",
+            "request": "launch",
+            "program": "day4/day4.py",
+            "console": "integratedTerminal",
+            "args": ["day4/sample.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 5",
+            "type": "python",
+            "request": "launch",
+            "program": "day5/day5.py",
+            "console": "integratedTerminal",
+            "args": ["day5/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 6",
+            "type": "python",
+            "request": "launch",
+            "program": "day6/day6.py",
+            "console": "integratedTerminal",
+            "args": ["day6/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 7",
+            "type": "python",
+            "request": "launch",
+            "program": "day7/day7.py",
+            "console": "integratedTerminal",
+            "args": ["day7/data.txt"],
+            "justMyCode": true
+        }
+    ]
+}
