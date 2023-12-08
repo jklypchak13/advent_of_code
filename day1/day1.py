@@ -32,5 +32,5 @@ if __name__ == '__main__':
     for line in data:
         part_one_answer += calibration_from_line(line, ONLY_DIGITS)
         part_two_answer += calibration_from_line(line, digit_group)
-    print(f'Part 1 Answer: {part_one_answer}')
-    print(f'Part 2 Answer: {part_two_answer}')
+    print(f'Part One Answer: {part_one_answer}')
+    print(f'Part Two Answer: {part_two_answer}')

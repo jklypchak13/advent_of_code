@@ -46,5 +46,5 @@ if __name__ == '__main__':
             part_one_answer += game_id
         part_two_answer += minimum[0] * minimum[1] * minimum[2]
 
-    print(f'Part 1 Answer: {part_one_answer}')
-    print(f'Part 2 Answer: {part_two_answer}')
+    print(f'Part One Answer: {part_one_answer}')
+    print(f'Part Two Answer: {part_two_answer}')

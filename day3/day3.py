@@ -95,5 +95,5 @@ if __name__ == '__main__':
     part_one_answer, part_two_answer = 0, 0
 
     part_one_answer, part_two_answer = total_parts(clean_data)
-    print(f'Part 1 Answer: {part_one_answer}')
-    print(f'Part 2 Answer: {part_two_answer}')
+    print(f'Part One Answer: {part_one_answer}')
+    print(f'Part Two Answer: {part_two_answer}')

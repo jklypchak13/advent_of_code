@@ -106,5 +106,5 @@ if __name__ == '__main__':
         current = m(current)
         current_part_one = m(current_part_one)
 
-    print(f'Part 1 Answer: {get_min(current_part_one)}')
-    print(f'Part 2 Answer: {get_min(current)}')
+    print(f'Part One Answer: {get_min(current_part_one)}')
+    print(f'Part Two Answer: {get_min(current)}')
