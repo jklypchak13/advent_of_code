@@ -13,69 +13,53 @@ def process_turn(character, direction):
         return (direction[1], direction[0])
 
 
-def follow_trail(grid, starting_position, starting_dir, visited, loop_checker):
+def follow_direction(position, direction):
+    return (position[0] + direction[0], position[1] + direction[1])
+
+
+def follow_trail(grid, starting_position, starting_dir, visited):
 
     position = starting_position
     direction = starting_dir
     while valid_position(grid, position):
-        visited.add(position)
+        if position in visited and direction in visited[position]:
+            return
+        elif position not in visited:
+            visited[position] = []
+        visited[position].append(direction)
         current = grid[position[0]][position[1]]
         x, y = position
-        dx, dy = direction
 
         match current:
             case '.':
-                position = (x + dx, y + dy)
+                position = follow_direction(position, direction)
             case '-':
-                if position in loop_checker and direction in loop_checker[position]:
-                    return
-                elif position not in loop_checker:
-                    loop_checker[position] = []
-                loop_checker[position].append(direction)
-                if dy > 0:
-                    position = (x + dx, y + dy)
+                if direction[1] > 0:
+                    position = follow_direction(position, direction)
                 else:
-                    # Continue this thread, spawn another
                     position = (x, y + 1)
                     direction = (0, 1)
-                    follow_trail(grid, (x, y - 1), (0, -1), visited, loop_checker)
+                    follow_trail(grid, (x, y - 1), (0, -1), visited)
             case '|':
-                if position in loop_checker and direction in loop_checker[position]:
-                    return
-                elif position not in loop_checker:
-                    loop_checker[position] = []
-                loop_checker[position].append(direction)
-                if dx > 0:
-                    position = (x + dx, y + dy)
+                if direction[0] > 0:
+                    position = follow_direction(position, direction)
                 else:
-                    # Continue this thread, spawn another
                     position = (x + 1, y)
                     direction = (1, 0)
-                    follow_trail(grid, (x - 1, y), (-1, 0), visited, loop_checker)
-            case default:
-                if position in loop_checker and direction in loop_checker[position]:
-                    return
-                elif position not in loop_checker:
-                    loop_checker[position] = []
-                loop_checker[position].append(direction)
+                    follow_trail(grid, (x - 1, y), (-1, 0), visited)
+            case _:
                 direction = process_turn(current, direction)
-                dx, dy = direction
-                position = (x + dx, y + dy)
+                position = follow_direction(position, direction)
 
 
 def energize_grid(grid, start, direction):
-    visited = set()
-
-    loop_checker = {}
-    visited.add((0, 0))
-    follow_trail(grid, start, direction, visited, loop_checker)
-
-    return len(visited)
+    visited = {}
+    follow_trail(grid, start, direction, visited)
+    return len(visited.keys())
 
 
 def find_best_entrance(grid):
     best = 0
-
     for column in range(len(grid[0])):
         best = max(best, energize_grid(grid, (0, column), (1, 0)))
         best = max(best, energize_grid(grid, (len(grid) - 1, column), (-1, 0)))
