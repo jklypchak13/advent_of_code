@@ -11,7 +11,7 @@ def get_launch(name):
         'request': 'launch',
         'program': f'day{name}/day{name}.py',
         'console': 'integratedTerminal',
-        'args': [f'day{name}/data.txt'],
+        'args': [f'day{name}/sample.txt'],
         'justMyCode': True
     }
 

@@ -144,6 +144,60 @@
             "console": "integratedTerminal",
             "args": ["day16/data.txt"],
             "justMyCode": true
+        },
+        {
+            "name": "Day 17",
+            "type": "python",
+            "request": "launch",
+            "program": "day17/day17.py",
+            "console": "integratedTerminal",
+            "args": ["day17/sample.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 18",
+            "type": "python",
+            "request": "launch",
+            "program": "day18/day18.py",
+            "console": "integratedTerminal",
+            "args": ["day18/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 19",
+            "type": "python",
+            "request": "launch",
+            "program": "day19/day19.py",
+            "console": "integratedTerminal",
+            "args": ["day19/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 20",
+            "type": "python",
+            "request": "launch",
+            "program": "day20/day20.py",
+            "console": "integratedTerminal",
+            "args": ["day20/data.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 21",
+            "type": "python",
+            "request": "launch",
+            "program": "day21/day21.py",
+            "console": "integratedTerminal",
+            "args": ["day21/sample.txt"],
+            "justMyCode": true
+        },
+        {
+            "name": "Day 22",
+            "type": "python",
+            "request": "launch",
+            "program": "day22/day22.py",
+            "console": "integratedTerminal",
+            "args": ["day22/data.txt"],
+            "justMyCode": true
         }
     ]
 }
