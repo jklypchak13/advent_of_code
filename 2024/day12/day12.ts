@@ -4,6 +4,8 @@ import {readFileSync} from "fs";
 import {Result} from "../shared/types.js"
 
 const INPUT_DATA = "day12/input.txt";
+const SAMPLE_DATA = "day12/sample.txt";
+
 export function day12(){
     let res: Result = {p1: "", p2: ""};
     const input = readFileSync(INPUT_DATA, {encoding: "utf-8"});
