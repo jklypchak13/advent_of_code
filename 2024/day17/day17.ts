@@ -12,7 +12,7 @@ export function day17(){
     return res;
 }
 
-if (import.meta.url === argv[1]) {
+if (import.meta.filename === argv[1]) {
     const result = day17();
     console.log(`Day 17 Part 1: ${result.p1}`);
     console.log(`Day 17 Part 2: ${result.p2}`);
