@@ -1,3 +1,5 @@
+import { argv } from 'process';
+
 import {readFileSync} from "fs";
 import {Result} from "../shared/types.js"
 
@@ -10,4 +12,8 @@ export function day15(){
     return res;
 }
 
-day15();
+if (import.meta.url === argv[1]) {
+    const result = day15();
+    console.log(`Day 15 Part 1: ${result.p1}`);
+    console.log(`Day 15 Part 2: ${result.p2}`);
+} 
