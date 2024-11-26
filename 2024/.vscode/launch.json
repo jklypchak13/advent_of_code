@@ -1,0 +1,212 @@
+{
+    "configurations": [
+        {
+            "name": "All Days",
+            "program": "${workspaceFolder}/all.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 1",
+            "program": "${workspaceFolder}/day1/day1.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 2",
+            "program": "${workspaceFolder}/day2/day2.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 3",
+            "program": "${workspaceFolder}/day3/day3.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 4",
+            "program": "${workspaceFolder}/day4/day4.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 5",
+            "program": "${workspaceFolder}/day5/day5.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 6",
+            "program": "${workspaceFolder}/day6/day6.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 7",
+            "program": "${workspaceFolder}/day7/day7.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 8",
+            "program": "${workspaceFolder}/day8/day8.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 9",
+            "program": "${workspaceFolder}/day9/day9.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 10",
+            "program": "${workspaceFolder}/day10/day10.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 11",
+            "program": "${workspaceFolder}/day11/day11.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 12",
+            "program": "${workspaceFolder}/day12/day12.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 13",
+            "program": "${workspaceFolder}/day13/day13.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 14",
+            "program": "${workspaceFolder}/day14/day14.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 15",
+            "program": "${workspaceFolder}/day15/day15.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 16",
+            "program": "${workspaceFolder}/day16/day16.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 17",
+            "program": "${workspaceFolder}/day17/day17.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 18",
+            "program": "${workspaceFolder}/day18/day18.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 19",
+            "program": "${workspaceFolder}/day19/day19.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 20",
+            "program": "${workspaceFolder}/day20/day20.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 21",
+            "program": "${workspaceFolder}/day21/day21.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 22",
+            "program": "${workspaceFolder}/day22/day22.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 23",
+            "program": "${workspaceFolder}/day23/day23.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 24",
+            "program": "${workspaceFolder}/day24/day24.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        },
+        {
+            "name": "Day 25",
+            "program": "${workspaceFolder}/day25/day25.ts",
+            "request": "launch",
+            "type": "node",
+            "console": "integratedTerminal",
+            "preLaunchTask": "tsc: build - tsconfig.json"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.4"
+  },
+  "type": "module",
+  "scripts":{
+    "build": "tsc",
+    "day1": "node build/day1/day1.js",
+    "day2": "node build/day2/day2.js"
+  }
+}
