@@ -1,5 +1,7 @@
 from shared.types import Result
 from shared.input import get_input
+from shared.parser.interpret import interpret_tokens
+from shared.parser.tokenizer import Tokenizer
 import re
 
 INPUT_DATA = "day3/input.txt"
@@ -22,13 +24,12 @@ def process_instructions(data, regex: re.Pattern):
 
 
 def day3() -> Result:
-    MULT_REGEX = 'mul\([0-9]{1,3},[0-9]{1,3}\)'
-    DO_REGEX = 'do\(\)'
-    DONT_REGEX = "don't\(\)"
     res = Result()
     input = ''.join(get_input(INPUT_DATA))
-    res.p1 = process_instructions(input, re.compile(f'{MULT_REGEX}'))
-    res.p2 = process_instructions(input, re.compile(f'({MULT_REGEX}|{DO_REGEX}|{DONT_REGEX})'))
+    tokenizer = Tokenizer(input)
+    res.p1 = interpret_tokens(tokenizer)
+    tokenizer.reset()
+    res.p2 = interpret_tokens(tokenizer, True)
     return res
 
 
