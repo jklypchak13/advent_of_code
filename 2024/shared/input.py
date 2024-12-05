@@ -9,7 +9,7 @@ class Grid(defaultdict):
         return self.get(key, self.factory())
 
 
-def get_input_lines(path: str) -> list[str]:
+def get_input(path: str) -> list[str]:
     lines = []
     with open(path, 'r') as fp:
         lines = fp.read().split('\n')
@@ -17,7 +17,7 @@ def get_input_lines(path: str) -> list[str]:
 
 
 def get_input_grid(path: str, default_value: str = '') -> Grid:
-    lines = get_input_lines(path)
+    lines = get_input(path)
     grid = Grid(lambda: default_value)
     for i in range(len(lines)):
         for j in range(len(lines[i])):
