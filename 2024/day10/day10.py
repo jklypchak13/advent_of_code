@@ -28,21 +28,20 @@ def get_neighbors(grid: Grid, position: Point) -> list[Point]:
     return neighbors
 
 
-def count_peaks(grid: Grid, root: Point, count_all_paths: bool = False) -> int:
-    peaks = 0
+def count_peaks(grid: Grid, root: Point) -> Result:
+    res = Result()
+    res.p2 = 0
     needs_eval = [root]
     visited = set()
-
     while len(needs_eval) > 0:
         current = needs_eval.pop(0)
-        if not count_all_paths and current in visited:
-            continue
         value = int(grid[current])
         if value == HIGH_POINT:
             visited.add(current)
-            peaks += 1
+            res.p2 += 1
         needs_eval.extend(get_neighbors(grid, current))
-    return peaks
+    res.p1 = len(visited)
+    return res
 
 
 def day10() -> Result:
@@ -51,8 +50,9 @@ def day10() -> Result:
     heads = find_trail_heads(input)
     res.p1, res.p2 = 0, 0
     for head in heads:
-        res.p1 += count_peaks(input, head)
-        res.p2 += count_peaks(input, head, True)
+        temp = count_peaks(input, head)
+        res.p1 += temp.p1
+        res.p2 += temp.p2
     return res
 
 
