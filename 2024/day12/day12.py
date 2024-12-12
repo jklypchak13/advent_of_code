@@ -72,7 +72,7 @@ def get_walls(grid: Grid, component: set[Point]) -> set[Boundary]:
             |
 
             so for a square, it would be represented by these
-                v
+                 v
             ------
            >|    | <
             |    |
