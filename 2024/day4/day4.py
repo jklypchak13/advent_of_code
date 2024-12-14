@@ -1,5 +1,6 @@
+from shared.grid import Grid
 from shared.types import Result
-from shared.input import get_input_grid, Grid
+from shared.input import get_input_grid
 
 INPUT_DATA = "day4/input.txt"
 SAMPLE_DATA = "day4/sample.txt"

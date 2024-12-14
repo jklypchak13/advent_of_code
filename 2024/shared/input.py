@@ -1,12 +1,5 @@
-from collections import defaultdict
 
-
-class Grid(defaultdict):
-    def __init__(self, factory):
-        self.factory = factory
-
-    def __getitem__(self, key):
-        return self.get(key, self.factory())
+from shared.grid import Grid
 
 
 def get_input(path: str) -> list[str]:

@@ -1,4 +1,7 @@
 
+from collections import defaultdict
+
+
 def get_adj8(x: int, y: int) -> list[tuple[int, int]]:
     """returns the positions adjacent to a given x,y coordiante, counting the diagnols
     """
@@ -18,3 +21,11 @@ def get_adj4(x: int, y: int) -> list[tuple[int, int]]:
     for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         result.append((x + dx, y + dy))
     return result
+
+
+class Grid(defaultdict):
+    def __init__(self, factory):
+        self.factory = factory
+
+    def __getitem__(self, key):
+        return self.get(key, self.factory())
