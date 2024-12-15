@@ -24,8 +24,11 @@ def get_adj4(x: int, y: int) -> list[tuple[int, int]]:
 
 
 class Grid(defaultdict):
-    def __init__(self, factory):
+    def __init__(self, factory, lines: list[str]):
         self.factory = factory
+        for i in range(len(lines)):
+            for j in range(len(lines[i])):
+                self[i, j] = lines[i][j]
 
     def __getitem__(self, key):
         return self.get(key, self.factory())
