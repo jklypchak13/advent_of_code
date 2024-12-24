@@ -1,17 +1,18 @@
 from shared.types import Result
-from shared.input import get_input
 
 INPUT_DATA = "day24/input.txt"
 SAMPLE_DATA = "day24/sample.txt"
 
-def get_starting_state(lines)->dict:
+Gate = tuple[int, int, str]
+
+def get_starting_gates(lines:list[str])->dict[str, Gate]:
     state = {}
     for line in lines:
         name, value = line.split(': ')
         state[name] = int(value)
     return state
 
-def calculate_state(a,b,op):
+def calculate_state(a:int,b:int,op:str)->int:
     if op == 'XOR':
         return a ^ b
     if op == 'OR':
@@ -19,40 +20,76 @@ def calculate_state(a,b,op):
     return a & b
     
 
-def solve_equations(wire_state, equations:dict[str, tuple]):
-    while len(equations) > 0:
-        remove = set()
-        for key, eq in equations.items():
-            a, b, op = eq
-            if a in wire_state and b in wire_state:
-                wire_state[key] = calculate_state(wire_state[a],wire_state[b],op)
-                remove.add(key)
-        for key in remove:
-            equations.pop(key)
-    return wire_state
-        
-
-def get_equations(lines):
-    equations = {}
+def add_gates(gates:dict[str, Gate], lines:list[str])->dict[str, Gate]:
     for line in lines:
         values = line.split(' ')
         dest = values[-1]
         a = values[0]
         op = values[1]
         b = values[2]
-        equations[dest] = (a, b, op)
-    return equations
-    
-def get_char_int(wire_state, char):
-    keys = filter(lambda x: x.startswith(char), wire_state.keys())
-    result = ''
-    for key in sorted(keys, reverse=True):
-        result += str(wire_state[key])
-    return int(result, base=2)
+        gates[dest] = (a, b, op)
+    return gates
 
-def simulate(wire_state, equations):
-    wire_state = solve_equations(wire_state, equations)
-    return get_char_int(wire_state, 'z')
+def solve(gates:dict[str, Gate], gate:str)->int:
+    if type(gates[gate]) == int:
+        return gates[gate]
+    a, b, op = gates[gate]
+    return calculate_state(solve(gates, a), solve(gates, b), op)
+    
+def find_char(gates:dict[str, Gate], char:str='z')->int:
+    result = {}
+    for gate in gates:
+        if not gate.startswith(char):
+            continue
+        result[gate] = solve(gates, gate)
+    res = ''
+    for gate in sorted(result.keys())[::-1]:
+        res += str(result[gate])
+    return int(res, base=2)
+
+def print_gate(gates, gate:str, depth=0, maxdepth=4):
+    if depth > maxdepth:
+        return
+    line = ' ' * depth
+    current = gates[gate]
+    if type(current) == int:
+        line += gate
+        print(line)
+        return
+    line += f'{gate} = '
+    a,b,op = current
+    line += f'{a} {op} {b}'
+    print(line)
+    print_gate(gates, a, depth+1)
+    print_gate(gates, b, depth+1)
+
+def find_bad_bit(gates:dict[str, Gate])->int:
+    x = find_char(gates, 'x')
+    y = find_char(gates, 'y')
+    z = find_char(gates, 'z')
+    actual = bin(z)
+    expected = bin(x + y)
+    for i in range(len(actual)-1, -1, -1):
+        if actual[i] != expected[i]:
+            return len(actual)-1 - i
+    return -1
+
+
+def find_non_xor_outputs(gates:dict[str, Gate])->list[Gate]:
+    result = []
+    for gate in gates:
+        if not gate.startswith('z'):
+            continue
+        if 'XOR' not in gates[gate]:
+            result.append(gate)
+    return result
+    
+def debug_bit(gates:dict[str, Gate], bit:int ):
+    print_gate(gates, f'z{bit-1}')
+    print('---')
+    print_gate(gates, f'z{bit}')
+    print('---')
+    print_gate(gates, f'z{bit+1}')
     
 def day24() -> Result:
     res = Result()
@@ -60,12 +97,35 @@ def day24() -> Result:
     with open(INPUT_DATA, 'r') as fp:
         data = fp.read()
     starting, values = data.split('\n\n')
-    wire_state = get_starting_state(starting.split('\n'))
-    equations = get_equations(values.split('\n'))
-    res.p1 = simulate(wire_state, equations)
-    res.p2 = 'Done by manual analysis, good luck :)'
+    gates = get_starting_gates(starting.split('\n'))
+    gates = add_gates(gates, values.split('\n'))
+    res.p1 = find_char(gates, 'z')
+    swaps = [
+        ('qdg', 'z12'),
+        ('z19', 'vvf'),
+        ('dck', 'fgn'),
+        ('nvh', 'z37')
+    ]
+    # Apply swaps found so far
+    for a,b in swaps:
+        gates[a], gates[b] = gates[b], gates[a]
+
+    bad_bit = find_bad_bit(gates)
+
+    # not_xor = find_non_xor_outputs(gates)
+    # print(f'None XOR output gates : {not_xor}')
+    # print(f'First Incorrect bit: {bad_bit}')
+    # debug_bit(gates, 23)
+
+    if bad_bit == -1:
+        swapped_gates = []
+        for swap in swaps:
+            swapped_gates.append(swap[0])
+            swapped_gates.append(swap[1])
+        res.p2 = ','.join(sorted(swapped_gates))
 
     return res
+
 
 
 if __name__ == '__main__':
