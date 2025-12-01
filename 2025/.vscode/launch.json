@@ -1,0 +1,82 @@
+{
+    "configurations": [
+        {
+            "name": "All",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "all"
+        },
+        {
+            "name": "Day 1",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day1.day1"
+        },
+        {
+            "name": "Day 2",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day2.day2"
+        },
+        {
+            "name": "Day 3",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day3.day3"
+        },
+        {
+            "name": "Day 4",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day4.day4"
+        },
+        {
+            "name": "Day 5",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day5.day5"
+        },
+        {
+            "name": "Day 6",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day6.day6"
+        },
+        {
+            "name": "Day 7",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day7.day7"
+        },
+        {
+            "name": "Day 8",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day8.day8"
+        },
+        {
+            "name": "Day 9",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day9.day9"
+        },
+        {
+            "name": "Day 10",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day10.day10"
+        },
+        {
+            "name": "Day 11",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day11.day11"
+        },
+        {
+            "name": "Day 12",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "day12.day12"
+        },
+    ]
+}
