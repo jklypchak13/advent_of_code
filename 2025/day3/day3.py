@@ -5,13 +5,11 @@ INPUT_DATA = "day3/input.txt"
 SAMPLE_DATA = "day3/sample.txt"
 
 def find_highest(bank, start, end):
-    # Scan backwards, finding the highest value that's the furthest to the left
-    best = int(bank[end])
-    index = end
-    for j in range(end-1, start-1, -1):
+    best = int(bank[start])
+    index = start
+    for j in range(start+1, end+1):
         current_digit = int(bank[j])
-        # Equality, because we want the furthest left max value
-        if current_digit >= best:
+        if current_digit > best:
             best = current_digit
             index = j
     return best, index
