@@ -2,45 +2,34 @@ from aoc_utils.types import Result
 from aoc_utils.input import get_input_grid, Grid
 from aoc_utils.grid import get_adj8
 
-from copy import deepcopy
-
 INPUT_DATA = "day4/input.txt"
 SAMPLE_DATA = "day4/sample.txt"
 
-BOX = '@'
-
-def count_boxes(neighbors):
-    total = 0
-    for value in neighbors:
-        if value == BOX:
-            total += 1
-    return total
-
-# Remove the removeable boxes, return the number removed
-def remove_boxes(grid:Grid)->int:
+# Remove the removeable boxes, return the removed number removed, and the set of neighbors adjacent to removed boxes
+def remove_boxes(grid:Grid, check:set)->tuple[int, set]:
     MAX_NEIGHBORS = 3
     removed = set()
-    for x, y in grid.keys():
-        neighbors = [grid[i,j] for i,j in get_adj8(x,y)]
-        neighbor_boxes = count_boxes(neighbors)
-        if neighbor_boxes <= MAX_NEIGHBORS:
+    need_check = set()
+    for x, y in check:
+        neighbor_boxes = [pos for pos in get_adj8(x,y) if pos in grid]
+        if len(neighbor_boxes) <= MAX_NEIGHBORS:
             removed.add((x,y))
+            need_check.update(neighbor_boxes)
 
     # Do the removals
     for val in removed:
         grid.pop(val)
 
-    return len(removed)
+    return len(removed), need_check.difference(removed)
+
 
 def clean_grid(grid:Grid):
     # Remove non-boxes, since we only actually care about where those are
-    remove = set()
-    for x,y in grid.keys():
+    BOX = '@'
+    keys = set(grid.keys())
+    for x,y in keys:
         if grid[x,y] != BOX:
-            remove.add((x,y))
-    for value in remove:
-        grid.pop(value)
-
+            grid.pop((x,y))
 
 def day4() -> Result:
     res = Result()
@@ -48,13 +37,14 @@ def day4() -> Result:
     clean_grid((grid))
 
     # Part 1
-    res.p1 = remove_boxes(grid)
+    needs_check = grid.keys()
+    res.p1, needs_check = remove_boxes(grid, needs_check)
 
     # Part 2
     res.p2 = res.p1
     removed = res.p2
     while removed > 0:
-        removed = remove_boxes(grid)
+        removed, needs_check = remove_boxes(grid, needs_check)
         res.p2 += removed
 
     return res
